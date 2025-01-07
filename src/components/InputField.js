@@ -7,12 +7,13 @@ const InputField = ({ label, type = "text", placeholder, register, name, error }
       <input
         {...register(name, { required: `${label} is required` })}
         type={type}
-        className={`w-full p-2 border ${
+        className={`w-full p-2 bg-transparent border ${
           error ? "border-red-500" : "border-gray-300"
-        } rounded-md`}
+        } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
+        style={{ color: 'gray' }}
         placeholder={placeholder}
       />
-      {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
+      {error && <p className="text-pink-500 text-sm mt-1">{error.message}</p>}
     </div>
   );
 };

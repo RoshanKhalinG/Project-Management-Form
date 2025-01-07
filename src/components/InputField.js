@@ -3,7 +3,7 @@ import React from "react";
 const InputField = ({ label, type = "text", placeholder, register, name, error }) => {
   return (
     <div className="mb-4">
-      <label className="block text-gray-700 font-medium mb-2">{label}</label>
+      <label className="block dark:text-white font-medium mb-2">{label}</label>
       <input
         {...register(name, { required: `${label} is required` })}
         type={type}

@@ -27,7 +27,7 @@ const App = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-gray-700 to-black p-5">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white p-8 shadow-lg rounded-md w-full max-w-3xl"
+        className="dark:bg-gray-800  p-8 shadow-lg rounded-md w-full max-w-3xl"
       >
         {/* Form Title */}
         <FormHeading title="Project Registration Form" />

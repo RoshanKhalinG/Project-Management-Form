@@ -10,9 +10,18 @@ const InputField = ({ label, type = "text", placeholder, register, name, error }
         className={`w-full p-2 bg-transparent border ${
           error ? "border-red-500" : "border-gray-300"
         } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
-        style={{ color: 'gray' }}
+        style={{
+          color: "gray",
+        }}
         placeholder={placeholder}
       />
+      {type === "date" && (
+        <style jsx>{`
+          input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: grayscale(100%) invert(50%) brightness(80%);
+          }
+        `}</style>
+      )}
       {error && <p className="text-pink-500 text-sm mt-1">{error.message}</p>}
     </div>
   );

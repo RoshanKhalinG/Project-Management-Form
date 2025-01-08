@@ -62,7 +62,8 @@ import PriorityLevel from "./components/DropDown/PriorityLevel.jsx"
       <Navbar theme={theme} setTheme={setTheme} />
 
 
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-gray-700 to-black p-5">
+      <div className={`min-h-screen flex items-center justify-center p-5 ${theme === 'light' ? 'bg-white' : 'bg-gradient-to-br from-purple-900 via-gray-700 to-black'}`}>
+
   <form
     onSubmit={handleSubmit(onSubmit)}
     className="bg-gray-800 p-6 sm:p-8 shadow-lg rounded-3xl w-full max-w-lg md:max-w-3xl"

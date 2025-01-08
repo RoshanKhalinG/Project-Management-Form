@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Dropdown, Button, Input, Modal } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const CurrentStatus = () => {
   const [currentStatus, setCurrentStatus] = useState('Choose Status');
@@ -13,7 +14,7 @@ const CurrentStatus = () => {
     },
     {
       key: '2',
-      label: 'Uncompleted',
+      label: 'Incompleted',
     },
     {
       key: '3',
@@ -23,7 +24,7 @@ const CurrentStatus = () => {
 
   const handleMenuClick = (e) => {
     const selectedOption = items.find(item => item.key === e.key)?.label;
-  
+
     if (selectedOption === 'User Input') {
       setIsModalVisible(true);
     } else {
@@ -48,8 +49,9 @@ const CurrentStatus = () => {
         trigger={['click']}
         id="status-dropdown"
       >
-        <Button className="bg-slate-700 text-white px-4 py-2 border-none rounded-xl  duration-300">
+        <Button className="bg-slate-700 text-white px-2 py-2 border-none rounded-xl flex items-center gap-2 duration-300">
           {currentStatus}
+          <DownOutlined/> 
         </Button>
       </Dropdown>
 

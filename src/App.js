@@ -159,71 +159,76 @@ import PriorityLevel from "./components/DropDown/PriorityLevel.jsx"
         error={errors.client}
       />
 
-      {/* Tools & Technology Field */}
-      <div className="col-span-1 md:col-span-2">
-        <label className="block text-gray-300 font-medium mb-2">
-          Tools & Technology
-        </label>
-        <div className="flex flex-col sm:flex-row gap-2 mb-3">
-          <select
-            className="bg-gray-700 text-gray-200 p-2 rounded-md w-full"
-            onChange={(e) => addTool(e.target.value)}
-            value=""
+{/* Tools & Technology Field */}
+<div className="col-span-1 md:col-span-2">
+  <label className="block text-gray-300 font-medium mb-2 text-left">
+    Tools & Technology
+  </label>
+  <div className="flex flex-col sm:flex-row gap-2 mb-3 items-center">
+    <select
+      className="bg-gray-700 text-gray-200 p-2 rounded-md w-full"
+      onChange={(e) => addTool(e.target.value)}
+      value=""
+    >
+      <option value="" disabled>
+        Select a tool/technology
+      </option>
+      {predefinedTools.map((tool, index) => (
+        <option key={index} value={tool}>
+          {tool}
+        </option>
+      ))}
+    </select>
+    <div className="flex w-full sm:w-auto gap-2 items-center">
+      <input
+        type="text"
+        placeholder="Add custom tool"
+        className="bg-gray-700 text-gray-200 p-2 rounded-md flex-grow"
+        value={toolInput}
+        onChange={(e) => setToolInput(e.target.value)}
+      />
+      <button
+        type="button"
+        className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm"
+        onClick={() => addTool(toolInput)}
+      >
+        Add
+      </button>
+    </div>
+  </div>
+  {tools.length > 0 && (
+    <div className="bg-gray-700 p-3 rounded-md">
+      <p className="text-gray-300 mb-2">Selected Tools/Technologies:</p>
+      <div className="flex flex-wrap gap-2">
+        {tools.map((tool, index) => (
+          <div
+            key={index}
+            className="bg-gray-600 text-white px-3 py-1 rounded-md flex items-center gap-2"
           >
-            <option value="" disabled>
-              Select a tool/technology
-            </option>
-            {predefinedTools.map((tool, index) => (
-              <option key={index} value={tool}>
-                {tool}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            placeholder="Add custom tool"
-            className="bg-gray-700 text-gray-200 p-2 rounded-md w-full"
-            value={toolInput}
-            onChange={(e) => setToolInput(e.target.value)}
-          />
-          <button
-            type="button"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md"
-            onClick={() => addTool(toolInput)}
-          >
-            Add
-          </button>
-        </div>
-        {tools.length > 0 && (
-          <div className="bg-gray-700 p-3 rounded-md">
-            <p className="text-gray-300 mb-2">Selected Tools/Technologies:</p>
-            <div className="flex flex-wrap gap-2">
-              {tools.map((tool, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-600 text-white px-3 py-1 rounded-md flex items-center gap-2"
-                >
-                  {tool}
-                  <button
-                    type="button"
-                    className="text-red-500 font-bold"
-                    onClick={() => removeTool(tool)}
-                  >
-                    &times;
-                  </button>
-                </div>
-              ))}
-            </div>
+            {tool}
+            <button
+              type="button"
+              className="text-red-500 font-bold"
+              onClick={() => removeTool(tool)}
+            >
+              &times;
+            </button>
           </div>
-        )}
+        ))}
       </div>
     </div>
+  )}
+</div>
 
-    {/* Submit and Clear All Buttons */}
-    <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-      <SubmitButton label="Submit" />
-      <ClearAllButton handleClear={handleClear} />
     </div>
+
+{/* Submit and Clear All Buttons */}
+<div className="mt-6 flex justify-center items-center gap-2">
+  <SubmitButton label="Submit" />
+  <ClearAllButton handleClear={handleClear} />
+</div>
+
+
   </form>
 </div>
   

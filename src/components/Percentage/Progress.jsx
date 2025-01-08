@@ -23,7 +23,7 @@ const Progress = () => {
 
   return (
     <div className="mb-4">
-      <label htmlFor="progress" className="block text-white font-medium mb-2">Progress:</label>
+      <label htmlFor="progress" className="block text-white font-medium mb-2 text-left">Progress:</label>
       <input
         id="progress"
         placeholder="Enter Your Progress"

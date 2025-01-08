@@ -26,9 +26,9 @@
 }
 
 .logo {
-  height: 40px; /* Adjust height as needed */
-  width: auto; /* Maintain aspect ratio */
-  object-fit: contain; /* Ensure the logo fits within the container */
+  height: 40px; 
+  width: auto;
+  object-fit: contain; 
   cursor: pointer;
 }
 
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 20px; /* Space between nav items */
+  gap: 20px;
 }
 
 .nav-links li {
@@ -50,7 +50,7 @@
 
 /* Hamburger Menu */
 .menu {
-  display: none; /* Hide by default for larger screens */
+  display: none; 
   flex-direction: column;
   cursor: pointer;
 }
@@ -81,11 +81,11 @@ ul li {
 }
 
 ul li:hover {
-  color: #f50057; /* Hover color */
+  color: #f50057; 
 }
 
 ul li.active {
-  color: #f50057; /* Active link color */
+  color: #f50057; 
   font-weight: bold;
 }
 
@@ -210,19 +210,23 @@ ul li.active {
   border-radius: 0.2rem;
 }
 
-/* Navigation List */
 .nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  list-style: none;
-  text-align: center;
-  transition: max-height 0.3s ease-in-out;
+  gap: 20px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-grow: 1; /* Allow the nav-links to take available space for proper centering */
 }
 
 .nav-links li {
-  margin: 10px 20px;
-  font-size: 18px;
+  position: relative;
   cursor: pointer;
+  padding: 5px 10px;
 }
+
 
 /* Media Query for Small Screens */
 @media (max-width: 768px) {
@@ -236,7 +240,7 @@ ul li.active {
     position: absolute;
     top: 20px;
     right: 30px;
-    z-index: 10; /* Make sure the menu appears above other elements */
+    z-index: 10; 
   }
 
   .menu span {
@@ -248,7 +252,7 @@ ul li.active {
   }
 
   .dark .menu span {
-    background: #fff; /* Hamburger icon in dark mode */
+    background: #fff; 
   }
 
   .nav-links {

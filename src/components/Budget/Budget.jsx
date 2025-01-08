@@ -13,7 +13,7 @@ const Budget = () => {
 
   return (
     <div className="mb-4">
-      <label htmlFor="budget" className="block text-white font-medium mb-2">Budget:</label>
+      <label htmlFor="budget" className="block text-white font-medium mb-2 text-left">Budget:</label>
       <input
         id="budget"
         placeholder="Enter Budget"

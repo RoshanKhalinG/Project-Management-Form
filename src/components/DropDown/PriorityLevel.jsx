@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import { Dropdown, Button } from 'antd';
+import { DownOutlined } from '@ant-design/icons'; 
+
 
 const PriorityLevel = () => {
-  const [currentStatus, setCurrentStatus] = useState('Choose Status'); // Default status
+  const [currentPriority, setCurrentPriority] = useState('Choose Status'); 
+  
 
   const items = [
-    {
-      key: '1',
-      label: 'Option A',
-    },
-    {
-      key: '2',
-      label: 'Option B',
-    },
-    {
-      key: '3',
-      label: 'Option C',
-    },
+    { key: "1", label: "High" },
+    { key: "2", label: "Medium" },
+    { key: "3", label: "Low " },
   ];
 
   const handleMenuClick = (e) => {
     const selectedOption = items.find(item => item.key === e.key)?.label;
-    setCurrentStatus(selectedOption || 'Choose Status'); // Update the current status
+    setCurrentPriority(selectedOption || 'Choose Priority'); 
+    
   };
 
   return (
@@ -35,8 +30,9 @@ const PriorityLevel = () => {
           trigger={['click']}
           id="status-dropdown"
         >
-          <Button className="bg-slate-700 border-none text-white px-4 py-2 rounded-xl hover:bg-blue-600 transition duration-300">
-            {currentStatus}
+          <Button className="bg-slate-700 border-none text-white px-2 py-2 rounded-xl hover:bg-blue-600 transition duration-300">
+            {currentPriority}
+            <DownOutlined/> 
           </Button>
         </Dropdown>
       </div>

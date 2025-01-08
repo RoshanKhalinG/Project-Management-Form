@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputField = ({ label, type = "text", placeholder, register, name, error }) => {
+const InputField = ({ label, type = "text", placeholder, register, name, error, defaultValue }) => {
   return (
     <div className="mb-4">
       <label className="block dark:text-white font-medium mb-2">{label}</label>
@@ -11,9 +11,10 @@ const InputField = ({ label, type = "text", placeholder, register, name, error }
           error ? "border-red-500" : "border-gray-300"
         } rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent`}
         style={{
-          color: "gray",
+          color: "white",
         }}
         placeholder={placeholder}
+        defaultValue={defaultValue}
       />
       {type === "date" && (
         <style jsx>{`

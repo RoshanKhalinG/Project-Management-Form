@@ -1,56 +1,28 @@
+/* Base Styles */
 .navbar {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff;
-  /* background: linear-gradient(45deg,#405de6,#4138f5,#833ab4,#c13584,#e1306c,#Fd1ddd); */
   padding: 15px 7%;
+  background-color: #fff;
   transition: 0.5s;
 }
 
-/* Navbar styling */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  background-color: var(--bg-color);
-  height: 60px;
-  position: relative;
-}
-
-/* Logo container styling */
 .logo-container {
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .logo {
-  height: 40px; 
+  height: 40px;
   width: auto;
-  object-fit: contain; 
+  object-fit: contain;
   cursor: pointer;
 }
 
-/* Navigation links styling */
-.nav-links {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links li {
-  cursor: pointer;
-}
-
-.nav-links li.active {
-  font-weight: bold;
-}
-
-/* Hamburger Menu */
+/* Menu Styles */
 .menu {
-  display: none; 
+  display: none;
   flex-direction: column;
   cursor: pointer;
 }
@@ -62,45 +34,26 @@
   width: 25px;
 }
 
-
-
-
-ul {
-  flex: 1;
-  list-style: none;
-  text-align: center;
-}
-
-ul li {
-  display: inline-block;
-  margin: 10px 20px;
-  font-size: 18px;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-ul li:hover {
-  color: #f50057; 
-}
-
-ul li.active {
-  color: #f50057; 
-  font-weight: bold;
-}
-
 .nav-links {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .nav-links li {
   position: relative;
   cursor: pointer;
   padding: 5px 10px;
+}
+
+/* Hover Effect */
+ul li:hover {
+  color: #f50057;
 }
 
 .nav-links li::after {
@@ -110,7 +63,7 @@ ul li.active {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #e61e1e;
+  background-color: #f50057;
   transition: width 0.7s ease-in-out;
 }
 
@@ -118,23 +71,23 @@ ul li.active {
   width: 100%;
 }
 
-.nav-links li.active::after {
+/* Active State */
+.nav-links li a.active {
+  color: #f50057;
+  font-weight: bold;
+}
+
+.nav-links li a.active::after {
   content: '';
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #e61e1e;
+  background-color: #f50057;
 }
 
-.nav-links li.active {
-  font-weight: bold;
-  color: #e61e1e;
-}
-
-
-
+/* Search Box */
 .search-box {
   display: flex;
   align-items: center;
@@ -142,7 +95,7 @@ ul li.active {
   border-radius: 100px;
   padding: 1px 10px;
   background: #242424;
-  transition: none; 
+  transition: none;
 }
 
 .search-box input {
@@ -158,7 +111,7 @@ ul li.active {
 }
 
 .search-box.open input {
-  max-width: 100px; 
+  max-width: 100px;
   opacity: 1;
   padding-left: 10px;
 }
@@ -168,13 +121,14 @@ ul li.active {
   cursor: pointer;
 }
 
+/* Theme Toggle Icon */
 .toggle-icon {
   width: 40px;
   cursor: pointer;
   margin-left: 40px;
 }
 
-/* Dark Mode */
+/* Dark Mode Styles */
 .dark .navbar {
   background: linear-gradient(100.26deg, rgba(0, 102, 255, 0.05) 42.33%, rgba(150, 0, 225, 0.05) 127.07%);
   color: #fff;
@@ -192,43 +146,11 @@ ul li.active {
   color: #222;
 }
 
-.menu {
-  display: none;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.5rem;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 2.25rem;
-  height: 2rem;
+.dark .menu span {
+  background: #fff;
 }
 
-.menu span {
-  height: 0.4rem;
-  width: 100;
-  background-color: #fff;
-  border-radius: 0.2rem;
-}
-
-.nav-links {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  flex-grow: 1; /* Allow the nav-links to take available space for proper centering */
-}
-
-.nav-links li {
-  position: relative;
-  cursor: pointer;
-  padding: 5px 10px;
-}
-
-
-/* Media Query for Small Screens */
+/* Mobile Styles */
 @media (max-width: 768px) {
   .menu {
     display: flex;
@@ -240,7 +162,7 @@ ul li.active {
     position: absolute;
     top: 20px;
     right: 30px;
-    z-index: 10; 
+    z-index: 10;
   }
 
   .menu span {
@@ -249,10 +171,6 @@ ul li.active {
     background: #000;
     border-radius: 5px;
     transition: all 0.3s ease;
-  }
-
-  .dark .menu span {
-    background: #fff; 
   }
 
   .nav-links {
@@ -266,11 +184,11 @@ ul li.active {
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out; /* Smooth toggle transition */
+    transition: max-height 0.3s ease-in-out;
   }
 
   .nav-links.open {
-    max-height: 300px; 
+    max-height: 300px;
   }
 
   .nav-links li {
@@ -279,52 +197,39 @@ ul li.active {
   }
 
   .light .nav-links {
-    background: #222; 
-    color: #fff; 
+    background: #222;
+    color: #fff;
   }
 
   .search-box {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    right: 40%;
+    z-index: 5;
     background: #000;
     padding: 1px 2px;
     border-radius: 50px;
-    position: absolute;
-   
-    right: 31%;
-   
-    transition: all 0.3s ease; 
-    z-index: 5; 
+    transition: all 0.3s ease;
   }
 
   .search-box input {
     padding: 4px;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    color: #fff;
-    font-size: 15px;
-    max-width: 0; 
+    max-width: 0;
     opacity: 0;
     transition: all 0.3s ease;
   }
 
   .search-box.open input {
-    max-width: 100px; 
+    max-width: 100px;
     opacity: 1;
     padding-left: 10px;
   }
 
   .light .search-box {
-    background: #222; 
+    background: #222;
   }
 
   .light .search-box input {
     color: #fff;
-  }
-
-  .light .search-box input::placeholder {
-    color: #fff; 
   }
 
   .toggle-icon {
@@ -334,6 +239,6 @@ ul li.active {
     top: 18px;
     left: 230px;
     transform: translateX(0);
-    z-index: 10; /* Ensure the toggle icon is above other elements */
+    z-index: 10;
   }
 }

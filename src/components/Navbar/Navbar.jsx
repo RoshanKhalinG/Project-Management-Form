@@ -1,18 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import search_icon_light from '../../assets/search-w.png';
-import search_icon_dark from '../../assets/search-b.png';
-import toggle_light from '../../assets/night.png';
-import toggle_dark from '../../assets/day.png';
-import logo from '../../assets/logo.jpg'; // Import your logo
+import search_icon_light from '../assets/search-w.png';
+import search_icon_dark from '../assets/search-b.png';
+import toggle_light from '../assets/night.png';
+import toggle_dark from '../assets/day.png';
+import logo from '../assets/logo.jpg';
 
 const Navbar = ({ theme, setTheme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Home');
+
+  // Get the current location
+  const location = useLocation();
+
+  // Determine the active link based on the current location
+  const getActiveLink = () => {
+    console.log('Current path:', location.pathname); // Debugging log
+    if (location.pathname === '/') return 'PMF';
+    if (location.pathname === '/daf') return 'DAF';
+    if (location.pathname === '/ilf') return 'ILF';
+    return 'PMF'; // Default to PMF for any unrecognized path
+  };
+
+  // State to track the active link
+  const [activeLink, setActiveLink] = useState(getActiveLink());
+
+  // Update activeLink when location changes
+  useEffect(() => {
+    setActiveLink(getActiveLink());
+  }, [location]);
 
   const toggle_mode = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setMenuOpen(false); // Close the menu after selecting a link
   };
 
   return (
@@ -28,26 +53,36 @@ const Navbar = ({ theme, setTheme }) => {
         <span></span>
         <span></span>
       </div>
-
-      {/* Navigation List */}
+       
+       
+      {/* Navigation Links */}
       <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-        <li
-          className={activeLink === 'Home' ? 'active' : ''}
-          onClick={() => setActiveLink('Home')}
-        >
-          PMF
+        <li>
+          <Link
+            to="/"
+            onClick={() => handleLinkClick('PMF')}
+            className={activeLink === 'PMF' ? 'active' : ''}
+          >
+            PMF
+          </Link>
         </li>
-        <li
-          className={activeLink === 'About' ? 'active' : ''}
-          onClick={() => setActiveLink('About')}
-        >
-          DAF
+        <li>
+          <Link
+            to="/daf"
+            onClick={() => handleLinkClick('DAF')}
+            className={activeLink === 'DAF' ? 'active' : ''}
+          >
+            DAF
+          </Link>
         </li>
-        <li
-          className={activeLink === 'Product' ? 'active' : ''}
-          onClick={() => setActiveLink('Product')}
-        >
-          ILF
+        <li>
+          <Link
+            to="/ilf"
+            onClick={() => handleLinkClick('ILF')}
+            className={activeLink === 'ILF' ? 'active' : ''}
+          >
+            ILF
+          </Link>
         </li>
       </ul>
 
@@ -57,7 +92,7 @@ const Navbar = ({ theme, setTheme }) => {
         <img
           src={theme === 'light' ? search_icon_light : search_icon_dark}
           alt="Search"
-          onClick={() => setSearchOpen(!searchOpen)} // Toggle search box visibility
+          onClick={() => setSearchOpen(!searchOpen)}
         />
       </div>
 

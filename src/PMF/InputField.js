@@ -31,7 +31,8 @@ const InputField = ({
       {type === "date" && (
         <style jsx>{`
           input[type="date"]::-webkit-calendar-picker-indicator {
-            filter: grayscale(100%) invert(50%) brightness(80%);
+                      filter: invert(100%) brightness(100%); /* Makes the icon white */
+                      cursor: pointer;
           }
         `}</style>
       )}
